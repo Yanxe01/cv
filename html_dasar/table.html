@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Belajar Tabel</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h3>Daftar Mahasiswa</h3>
+    <!-- ? Membuat Tabel -->
+
+    <p>Pergi ke <a href="index.html">Index</a></p>
+
+    <table class="table" border="1">
+      <thead>
+        <tr>
+          <th rowspan="2">No</th>
+          <th rowspan="2">Nama Lengkap</th>
+          <th rowspan="2">Umur</th>
+          <th colspan="2">Sosial Media</th>
+          <th colspan="2">Nilai</th>
+        </tr>
+        <tr>
+          <th>instagram</th>
+          <th>tiktok</th>
+          <th>semester1</th>
+          <th>semester2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Juan</td>
+          <td>22</td>
+          <td>@Juan</td>
+          <td>juan</td>
+          <td>90</td>
+          <td>80</td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td>Juda</td>
+          <td>19</td>
+          <td>@Juda</td>
+          <td>Juda</td>
+          <td>80</td>
+          <td>90</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="table" border="1">
+      <thead>
+        <tr>
+          <th rowspan="2">Heading</th>
+          <th>student</th>
+          <th colspan="3">Details</th>
+        </tr>
+        <tr>
+          <th>id</th>
+          <th>name</th>
+          <th>departement</th>
+          <th>roll number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th rowspan="5">studentlist</th>
+        </tr>
+        <tr>
+          <th>1</th>
+          <th>Victor</th>
+          <th>Computer Science</th>
+          <th>12345</th>
+        </tr>
+        <tr>
+          <th>2</th>
+          <th>Williams</th>
+          <th>Electronics</th>
+          <th>23456</th>
+        </tr>
+        <tr>
+          <th>3</th>
+          <th>Harry</th>
+          <th>Electrical</th>
+          <th>34567</th>
+        </tr>
+        <tr>
+          <th>4</th>
+          <th>Rick</th>
+          <th>Civil</th>
+          <th>45678</th>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ? Form -->
+
+    <h3>Registrasi Mahasiswa</h3>
+    <form action="">
+      <!-- ? Input Text -->
+      <label for="nama_lengkap">Nama Lengkap</label>
+      <input
+        type="text"
+        id="nama_lengkap"
+        name="nama_lengkap"
+        placeholder="Masukkan Nama Lengkap"
+        value="John wick"
+        disabled
+      />
+      <br />
+
+      <!-- ? Password -->
+      <label for="Password">password</label>
+      <input
+        type="Password"
+        id="Password"
+        name="password"
+        placeholder="password"
+        required
+      />
+
+      <br />
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Mauskkan email"
+        required
+      />
+
+      <br />
+      <label for="tanggal_lahir">Tanggal Lahir</label>
+      <input type="date" id="tanggal_lahir" name="tanggal_lahir" />
+      <br />
+
+      <label for="no_hp">No Hp</label>
+      <input
+        type="number"
+        id="no_hp"
+        name="no_hp"
+        placeholder="Masukkan No Hp"
+      />
+      <br />
+
+      <div>Jenis Kelamin:</div>
+      <label for="pria">Pria</label>
+      <input type="radio" id="pria" name="jenis_kelamin" />
+      <label for="wanita">Wanita</label>
+      <input type="radio" id="wanita" name="jenis_kelamin" />
+      <br />
+      <div>Hobi</div>
+      <input type="checkbox" id="berenang" name="hobi" />
+      <label for="berenang">Berenang</label>
+      <input type="checkbox" id="musik" name="hobi" />
+      <label for="musik">Musik</label>
+      <input type="checkbox" id="bacakomik" name="hobi" />
+      <label for="bacakomik">Bacakomik</label>
+
+      <br />
+      <label for="alamt">Alamat</label> <br />
+      <textarea name="alamt" id="alamt"></textarea>
+      <br />
+
+      <label for="jurusan">Jurusan</label>
+      <select name="jurusan" id="jurusan">
+        <option value="">--Pilih Satu--</option>
+        <option value="Sistem Informasi">Sistem Informasi</option>
+        <option value="Teknik Informasika">Teknik Informatika</option>
+        <option value="Teknik Informasika">Teknik Informatika</option>
+      </select>
+      <br />
+
+      <button type="submit">Simpan</button>
+    </form>
+  </body>
+</html>
