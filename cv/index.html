@@ -52,8 +52,12 @@
         }
 
         .navbar-custom.scrolled .nav-link {
-            color: #ffffff !important; 
-        }
+            color: #ffffff ; 
+        } 
+
+        .navbar-custom.scrolled  .nav-link::after {
+            background-color: #ffffff; 
+        }   
         
         .navbar-custom .nav-link {
             position: relative; 
@@ -85,12 +89,53 @@
 
         /* FONT GRADIENT TEXT */
         .navbar-brand{
-            background: linear-gradient(45deg, #007bff, #ffffff);
+            background: linear-gradient(180deg, #007bff, #f5f5f5);
             -webkit-background-clip: text;
             background-clip: text;
             letter-spacing: 1px;
             text-shadow: none;
             color: transparent;
+        }
+
+
+        /* Hero/Header section */
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .cursor {
+            display: inline-block;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        #hero {
+            position: relative;
+            overflow: hidden;
+            min-height: 900px;
         }
     </style>
 </head>
@@ -126,11 +171,17 @@
         </div>
     </nav>
     <!-- * Header/ Hero -->
-    <section id="hero" class="text-center bg-primary text-light pt-5">
-        <img src="https://placecats.com/300/300" class="rounded-circle border border-3 border-light shadow"
+    <section id="hero" class="text-center bg-primary text-light d-flex flex-column justify-content-center">
+        <div>
+        <img src="https://placecats.com/300/300" 
+            class="rounded-circle border border-3 border-light shadow mb-3"
             width="150px" alt="Gambar">
-        <h1 class="display-5">Ian</h1>
-        <p class="lead"><i>Welcome To My Page</i></p>
+        <h1 class="display-5 fw-bold">Ian</h1>
+
+        <p class="lead fw-bold">
+            <span id="typing-text"></span><span class="cursor">|</span>
+        </p>
+        </div>
     </section>
     <!-- * About Me -->
     <section id="about_me" class="py-5 bg-light" style="min-height: 1000px;">
@@ -298,6 +349,44 @@
             } else {
                 nav.classList.remove('scrolled');
             }
+        });
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const textElement = document.getElementById("typing-text");
+
+            const textArray = [
+                "Welcome To My Page",
+                "Full Stack Developer",
+                "Machine Learning Enthusiast",
+            ]
+
+            let arryIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+
+            function type() {
+                const currentText = textArray[arryIndex];
+                if (isDeleting) {
+                    charIndex--;
+                    textElement.textContent = currentText.substring(0, charIndex);
+                    if (charIndex === 0) {
+                        isDeleting = false;
+                        arryIndex = (arryIndex + 1) % textArray.length;
+                    }
+                } else {
+                    charIndex++;
+                    textElement.textContent = currentText.substring(0, charIndex);
+                    if (charIndex === currentText.length) {
+                        isDeleting = true;
+                        setTimeout(type, 1500); 
+                        return;
+                    }
+                }
+                setTimeout(type, isDeleting ? 100 : 200);
+            }
+            type();
         });
     </script>
 </body>
